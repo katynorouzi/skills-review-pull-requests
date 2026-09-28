@@ -48,7 +48,7 @@
   </tr>
 </table>
 
-<h2 hidden>Game over! Want to play again? Click Play again. 🧑‍🚀</h2>
+<h2 hidden aria-live="polite" role="status"></h2>
 <button id="play-again" hidden>Play again</button>
 
 <script>
@@ -148,12 +148,13 @@
 
   // Display game over, cancel events
   function endGame(result) {
+    const playAgainMessage = "Click Play again. 🧑‍🚀";
     if (result === "draw") {
-      gameOver.textContent = "Game over: Draw";
+      gameOver.textContent = `Game over: Draw. ${playAgainMessage}`;
     } else if (result === "human") {
-      gameOver.textContent = "Game over: You win";
+      gameOver.textContent = `Game over: You win. ${playAgainMessage}`;
     } else if (result === "robot") {
-      gameOver.textContent = "Game over: Robot wins";
+      gameOver.textContent = `Game over: Robot wins. ${playAgainMessage}`;
     }
     gameOver.hidden = false;
     playAgainBtn.hidden = false;
