@@ -19,6 +19,17 @@
   table {
     margin: 5rem auto;
   }
+  h2:empty {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
   @media (prefers-color-scheme: dark) {
     body,
     input {
@@ -48,7 +59,7 @@
   </tr>
 </table>
 
-<h2 hidden aria-live="polite" role="status"></h2>
+<h2 aria-live="polite" role="status"></h2>
 <button id="play-again" hidden>Play again</button>
 
 <script>
@@ -156,7 +167,6 @@
     } else if (result === "robot") {
       gameOver.textContent = `Game over: Robot wins. ${playAgainMessage}`;
     }
-    gameOver.hidden = false;
     playAgainBtn.hidden = false;
     // Move focus to the button for quick replay
     playAgainBtn.focus();
