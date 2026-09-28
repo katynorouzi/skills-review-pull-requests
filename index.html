@@ -19,7 +19,7 @@
   table {
     margin: 5rem auto;
   }
-  h2[role="status"] {
+  [role="status"] {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -59,7 +59,7 @@
   </tr>
 </table>
 
-<h2 aria-live="polite" role="status"></h2>
+<p id="game-over-status" aria-live="polite" role="status"></p>
 <button id="play-again" hidden>Play again</button>
 
 <script>
@@ -88,7 +88,7 @@
       document.querySelector(`tr:nth-child(${x}) td:nth-child(${y})`)
     )
   );
-  const gameOver = document.querySelector("h2");
+  const gameOver = document.getElementById("game-over-status");
   const playAgainBtn = document.getElementById("play-again");
   const HUMAN = "🧑‍💻";
   const ROBOT = "🤖";
